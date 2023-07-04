@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetClub - {% block title%}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+   
+
+</head>
+<body>
+  <div class="header">
+    <div class="header_resize">
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><li><a href="{{url_for('home')}}">HOME</a></li>
+         
+          <li><a href="{{url_for('about')}}">ABOUT US</a></li>
+          <li><a href="{{url_for('contact')}}">CONTACT</a></li>
+          {% if current_user.is_authenticated %}
+          <li><a href="{{url_for('blog')}}">BLOG</a></li>
+          li><a href="{{url_for('logout')}}">Logout</a></li>
+          {% else %}
+          <li><a href="{{url_for('login')}}">LOG IN</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="logo">
+        <h1><a href="index.html">MET<span>CLUB</span> <small>Make world a better place</small></a></h1>
+      </div>
+      <div class="clr"></div>
+      <div class="slider">
+        <div id="coin-slider"> <a href="#"><img src="/static/images/slide1.jpg" width="934" height="307" alt="" /> </a> <a href="#"><img src="/static/images/slide2.jpg" width="934" height="307" alt="" /> </a> <a href="#"><img src="/static/images/slide3.jpg" width="934" height="307" alt="" /> </a> </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="container">
+    {% block content%}{% endblock %}
+</div>
+</body>
+</html>
+
